@@ -1,0 +1,203 @@
+/* ==========================================================
+   Estilos de la página personal
+   Los colores y fuentes se cambian en :root
+   ========================================================== */
+
+:root {
+  --papel: #E9EFF3;
+  --tinta: #12263A;
+  --tinta-suave: #3B4F63;
+  --mar: #0E7C86;
+  --mar-oscuro: #0A5A62;
+  --ambar: #F0B13A;
+  --blanco: #FFFFFF;
+  --linea: #C5D2DB;
+  --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --texto: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+a { color: var(--mar-oscuro); }
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--ambar);
+  outline-offset: 3px;
+}
+
+img, video { max-width: 100%; display: block; }
+
+.wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+
+/* ---------- Navegación ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(233, 239, 243, .92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--linea);
+}
+.nav .wrap {
+  display: flex; gap: 1.5rem; align-items: center;
+  justify-content: space-between; padding-block: .8rem; flex-wrap: wrap;
+}
+.nav strong { font-family: var(--display); font-weight: 800; letter-spacing: -.01em; }
+.nav ul { list-style: none; display: flex; gap: 1.2rem; margin: 0; padding: 0; flex-wrap: wrap; }
+.nav a {
+  font-family: var(--display); font-weight: 500; font-size: .95rem;
+  text-decoration: none; color: var(--tinta);
+}
+.nav a:hover { color: var(--mar); }
+
+/* ---------- Pantalla de presentación ---------- */
+.hero { padding-block: clamp(2.5rem, 7vw, 5.5rem); }
+.hero .wrap {
+  display: grid; grid-template-columns: 1.3fr 1fr;
+  gap: 3rem; align-items: center;
+}
+.hero h1 {
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(2.6rem, 7.5vw, 5.4rem);
+  line-height: .98; letter-spacing: -.035em;
+  margin: 0 0 1.2rem;
+  min-height: 2em;
+}
+.hero .rol {
+  font-family: var(--display); font-weight: 500; font-size: 1.25rem;
+  color: var(--mar-oscuro); margin: 0 0 1rem;
+}
+.hero .intro { max-width: 34rem; color: var(--tinta-suave); margin: 0 0 1.8rem; }
+
+.acciones { display: flex; flex-wrap: wrap; gap: .8rem; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--display); font-weight: 700; font-size: 1rem;
+  padding: .75rem 1.3rem; border-radius: 6px;
+  text-decoration: none; border: 2px solid var(--tinta);
+  background: var(--tinta); color: var(--blanco);
+  transition: background .15s, color .15s;
+}
+.btn:hover { background: var(--mar); border-color: var(--mar); }
+.btn.claro { background: transparent; color: var(--tinta); }
+.btn.claro:hover { background: var(--tinta); color: var(--blanco); border-color: var(--tinta); }
+
+/* ---------- Retrato con círculo mágico ---------- */
+.retrato { position: relative; width: min(380px, 100%); margin-inline: auto; aspect-ratio: 1; }
+.retrato svg.circulo { position: absolute; inset: 0; width: 100%; height: 100%; }
+.retrato .foto {
+  position: absolute; inset: 15%;
+  border-radius: 50%; overflow: hidden;
+  background: var(--linea);
+}
+.retrato .foto img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Secciones ---------- */
+section.bloque {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  border-top: 1px solid var(--linea);
+}
+h2 {
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  letter-spacing: -.025em; line-height: 1.1;
+  margin: 0 0 2rem;
+}
+h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; margin: 0 0 .3rem; line-height: 1.2; }
+.periodo { font-family: var(--display); font-weight: 500; font-size: .95rem; color: var(--mar-oscuro); margin: 0 0 .4rem; }
+
+/* ---------- Formación académica ---------- */
+.tiempo { list-style: none; margin: 0; padding: 0 0 0 1.8rem; border-left: 3px solid var(--tinta); max-width: 46rem; }
+.tiempo li { position: relative; padding-bottom: 2rem; }
+.tiempo li:last-child { padding-bottom: 0; }
+.tiempo li::before {
+  content: ""; position: absolute; left: calc(-1.8rem - 9px); top: .45rem;
+  width: 15px; height: 15px; border-radius: 50%;
+  background: var(--ambar); border: 3px solid var(--tinta);
+}
+.tiempo p { margin: 0; color: var(--tinta-suave); }
+
+/* ---------- Contacto y redes ---------- */
+.contacto { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.correo {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(1.2rem, 3vw, 1.7rem); word-break: break-word;
+}
+.redes { display: flex; flex-wrap: wrap; gap: .7rem; padding: 0; list-style: none; margin: 1rem 0 0; }
+.redes a {
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-family: var(--display); font-weight: 700; font-size: .98rem;
+  padding: .6rem 1rem; border-radius: 999px;
+  border: 2px solid var(--tinta); color: var(--tinta);
+  text-decoration: none; background: var(--blanco);
+  transition: background .15s, color .15s;
+}
+.redes a:hover { background: var(--tinta); color: var(--blanco); }
+.redes svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* ---------- Hobbies ---------- */
+.galeria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.galeria figure { margin: 0; }
+.galeria .medio {
+  aspect-ratio: 4/3; border-radius: 8px; overflow: hidden;
+  background: var(--linea); border: 2px solid var(--tinta);
+}
+.galeria img, .galeria video { width: 100%; height: 100%; object-fit: cover; }
+.galeria figcaption { margin-top: .6rem; font-size: 1rem; color: var(--tinta-suave); }
+.galeria figcaption strong { font-family: var(--display); color: var(--tinta); display: block; }
+
+/* ---------- Criptografía ---------- */
+.cripto { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; }
+.cripto p { max-width: 38rem; margin: 0 0 1.1rem; }
+.cripto blockquote {
+  margin: 1.5rem 0; padding: 0 0 0 1.2rem;
+  border-left: 4px solid var(--ambar);
+  font-style: italic; color: var(--tinta-suave);
+}
+.fechas { background: var(--tinta); color: var(--blanco); border-radius: 10px; padding: 1.6rem; }
+.fechas h3 { color: var(--ambar); margin-bottom: 1rem; }
+.fechas dl { margin: 0; }
+.fechas dt { font-family: var(--display); font-weight: 800; font-size: 1.5rem; margin-top: 1rem; }
+.fechas dt:first-child { margin-top: 0; }
+.fechas dd { margin: 0; font-size: 1rem; color: #D4DEE6; line-height: 1.5; }
+.ejemplo {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: .95rem; background: var(--blanco); border: 2px solid var(--tinta);
+  border-radius: 8px; padding: 1rem 1.2rem; margin-top: 1.5rem; overflow-x: auto;
+}
+
+/* ---------- Descargas ---------- */
+.descargas { background: var(--tinta); color: var(--blanco); }
+.descargas h2 { color: var(--blanco); }
+.descargas p { color: #D4DEE6; max-width: 36rem; }
+.descargas .btn { background: var(--ambar); border-color: var(--ambar); color: var(--tinta); }
+.descargas .btn:hover { background: var(--blanco); border-color: var(--blanco); }
+.descargas .btn.claro { background: transparent; color: var(--blanco); border-color: var(--blanco); }
+.descargas .btn.claro:hover { background: var(--blanco); color: var(--tinta); }
+.huella {
+  font-family: ui-monospace, Consolas, monospace; font-size: .9rem;
+  color: #D4DEE6; margin-top: 1.5rem; word-break: break-all;
+}
+
+footer { padding-block: 2rem; text-align: center; font-size: .95rem; color: var(--tinta-suave); }
+
+/* ---------- Pantallas pequeñas ---------- */
+@media (max-width: 800px) {
+  .hero .wrap, .contacto, .cripto { grid-template-columns: 1fr; gap: 2rem; }
+  .retrato { order: -1; width: min(300px, 80%); }
+  .galeria { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
